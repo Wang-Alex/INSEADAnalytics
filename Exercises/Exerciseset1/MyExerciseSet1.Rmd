@@ -7,7 +7,7 @@ output: html_document
 
 
 <br>
-
+test
 The purpose of this exercise is to become familiar with:
 
 1. Basic statistics functions in R;
@@ -20,9 +20,11 @@ While doing this exercise we will also see how to generate replicable and custom
 Before starting, make sure you have pulled the [exercise files](https://github.com/InseadDataAnalytics/INSEADAnalytics/tree/master/Exercises/Exerciseset1)  on your github repository (if you pull the course github repository you also get the exercise set files automatically). Moreover, make sure you are in the directory of this exercise. Directory paths may be complicated, and sometimes a frustrating source of problems, so it is recommended that you use these R commands to find out your current working directory and, if needed, set it where you have the main files for the specific exercise/project (there are other ways, but for now just be aware of this path issue). For example, assuming we are now in the "MYDIRECTORY/INSEADAnalytics" directory, we can do these: 
 
 ```{r echo=TRUE, eval=FALSE, tidy=TRUE}
-getwd()
-setwd("Exercises/Exerciseset1/")
-list.files()
+#getwd()
+
+#setwd("Exercises/Exerciseset1/")
+
+#list.files()
 ```
 
 **Note:** you can always use the `help` command in Rstudio to find out about any R function (e.g. type `help(list.files)` to learn what the R function `list.files` does).
@@ -57,8 +59,8 @@ For more information on downloading finance data from the internet as well as on
 
 1. Can you find some interesting finance related R package or github repository? 
 **Your Answers here:**
-<br>There is an interactive brokers package which provides native R access directly to the investment software API I have been using for years 
-<br>I am keen to find out what could be done with this (e.g. give commands to trade when certain data rules have been met)
+<br>
+<br>
 
 <hr>
 <hr>
@@ -85,14 +87,10 @@ pnl_plot(SPY)
 3. *(Extra points)* What if we want to also see the returns of another company, say Yahoo!, in the same period? Can you get that data and report the statistics for Yahoo!'s stock, too? 
 
 **Your Answers here:**
-<br>Question 1.: In dataSet1.R there is a variable called mytickers that takes bot SPY and AAPL data
-<br>
-<br>Question 2: The cumulative returns of the Apple index during this period is `r round(100*sum(StockReturns[,2]),1)`%.
-<br> The average daily returns of the Apple index during this period is `r round(100*mean(StockReturns[,2]),3)`%;
-<br> The standard deviation of the daily returns of the Apple index during this period is `r round(100*sd(StockReturns[,2]),3)`%;
 <br>
 <br>
-<br>Question 3: yes, by adjusting the dataset1.R file, adding "YHOO" to mytickers = c("SPY", "AAPL", "YHOO"), save it and rerun the previous process, with the number 3 instead of 2 in the commands. The results are cumulative 288.802, mean 0.072, SD 3.02
+<br>
+<br>
 
 <hr>
 <hr>
@@ -130,20 +128,10 @@ We can also transpose the matrix of returns to create a new "horizontal" matrix.
 2. Based on the help for the R function *apply* (`help(apply)`), can you create again the portfolio of S&P and Apple and plot the returns in a new figure below?
 
 **Your Answers here:**
-<br>Question 1: 
-`r transposedData = t(StockReturns)`
-to get the number of rows, we use nrow(transposedData): `r nrow(transposedData)`
-<br>to get the number of columns, we use ncol(transposedData): `r ncol(transposedData)`
 <br>
 <br>
-<br>Question 2: apply(transposedData,2,mean) calculates the mean for the columns of the transposedData matrix. which is an average of the return for AAPL and SPY (50-50 split)
-<br>Therefore to plot this portfolio one needs to plot apply(transposedData,2,mean)
-
-```{r echo=FALSE, comment=NA, warning=FALSE, message=FALSE,results='asis',fig.align='center', fig=TRUE}
-portfolio = apply(transposedData,2,mean)
-names(portfolio) <- colnames(transposedData)
-pnl_plot(portfolio)
-```
+<br>
+<br>
 
 <hr>
 <hr>
@@ -158,8 +146,10 @@ This is an important step and will get you to think about the overall process on
 2. *(Extra Exercise)*  Can you get the returns of a few companies and plot the returns of an equal weighted portfolio with those companies during some period you select? 
 
 **Your Answers here:**
-<br>Question 1: change to startDate = "2001-01-01" (was already there in the file though, so no need to change)
-<br>Question 2: Yes, this can be done by adding companies to mytickers, e.g. c("SPY", "AAPL", "TSLA") and change the startdate to the one wanted. Then we rerun it again
+<br>
+<br>
+<br>
+<br>
 
 <hr>
 <hr>
@@ -186,13 +176,14 @@ Try it!
 2. *(Extra exercise)* What do you think will happen if you now run this command, and why:  
 
 ```{r eval = FALSE, echo=TRUE}
-myData + StockReturns[1:40,])
+myData + StockReturns[1:40,]
 ```
 
 **Your Answers here:**
-<br>Question 1: this gives the number of instances in which myData is not equal to StockReturns[1:20] = `r sum(myData != StockReturns[1:20,])`
-<br>Although both datasets have the same numbers, they are not exactly equal due to rounding differences
-<br>Question 2: both tables will be added to each other, giving us the doubles for the first 20 rows. After the first 20 rows, mydata will be added again to the second 20 numbers of StockReturns.
+<br>
+<br>
+<br>
+<br>
 
 <hr>
 <hr>
@@ -232,3 +223,4 @@ What if you also include information about bonds? (e.g. download the returns of 
 
 
 **Have fun** 
+
